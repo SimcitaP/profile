@@ -8,6 +8,8 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+
+
 // eslint-disable-next-line react-refresh/only-export-components
 const Contact = () => {
   const formRef = useRef();

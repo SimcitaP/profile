@@ -1,10 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import {motion} from 'framer-motion';
+import useIsMobile from "./hooks/useIsMobile";
 
 import { styles } from '../styles';
 import { ComputersCanvas } from './canvas';
 
 const Hero = () => {
+
+  const isMobile = useIsMobile(800);
   return (
     <section className='relative w-full h-screen mx-auto'>
       <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
@@ -22,7 +25,8 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <ComputersCanvas />
+      {/* disables 3D laptop if on mobile */}
+      {isMobile ? <h1>Use PC/Laptop for better experience</h1> :<ComputersCanvas />}
 
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
         <a href='#about'>

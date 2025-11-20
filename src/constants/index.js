@@ -54,7 +54,7 @@ const services = [
     icon: backend,
   },
   {
-    title: "data Analyst",
+    title: "Machine Learning",
     icon: Data,
   },
   {
@@ -69,10 +69,6 @@ const services = [
     title: "Mobile Developer",
     icon: backend,
   },
-  {
-    title: "Machine Learning",
-    icon: Data,
-  }
 ];
 
 const technologies = [

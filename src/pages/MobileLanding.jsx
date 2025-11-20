@@ -12,10 +12,10 @@ const MobileLanding = () => {
   return (
     <div className="bg-primary w-full overflow-x-hidden">
       <Navbar />
-      <Hero hide3D />   {/* disables 3D laptop */}
+      {/*<Hero hide3D />*/}   {/* disables 3D laptop */}
       <About />
       <Experience />
-      <Tech />
+      {/*<Tech />*/}
       <Works />
       <Feedbacks />
       <Contact />

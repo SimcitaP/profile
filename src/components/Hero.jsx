@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import {motion} from 'framer-motion';
-import useIsMobile from "./hooks/useIsMobile";
+import useIsMobile from "../hooks/useIsMobile";
 
 import { styles } from '../styles';
 import { ComputersCanvas } from './canvas';

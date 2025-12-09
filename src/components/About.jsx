@@ -54,7 +54,10 @@ const About = () => {
         JavaScript, and expertise in frameworks like React, Node.js, and
         Three.js. I'm a quick learner and collaborate closely with clients to
         create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
+        real-world problems. I use Machine Learning to build models that solve 
+        real world problems this is done in conjucyion with analysis of large 
+        volues of data to optimise business procedures.
+        Let's work together to bring your ideas to life!
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

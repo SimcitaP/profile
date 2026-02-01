@@ -26,12 +26,14 @@ const ProjectCard = ({
           speed: 450,
         }}
         className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+        onClick={() => window.open(source_code_link, "_blank")}
       >
         <div className='relative w-full h-[230px]'>
           <img
             src={image}
             alt='project_image'
             className='w-full h-full object-cover rounded-2xl'
+            onClick={() => window.open(source_code_link, "_blank")}
           />
 
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
@@ -91,6 +93,8 @@ const Works = () => {
           links to code repositories and live demos in it. It reflects my
           ability to solve complex problems, work with different technologies,
           and manage projects effectively.
+
+          Click on the github icon on the top right to view the source code / deployed webapp.
       </motion.p>
     </div>
     
@@ -99,7 +103,8 @@ const Works = () => {
           <ProjectCard 
           key={`project-${index}`} 
           index={index} 
-          {...project} />
+          {...project} 
+          />
         ))}
       </div>
 

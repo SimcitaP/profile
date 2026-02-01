@@ -184,6 +184,20 @@ const experiences = [
     ],
   },*/
   {
+    title: "Wits Tutor",
+    company_name: "Universityt of the Witwatersrand",
+    icon: Data,
+    iconBg: "#E6DEDD",
+    date: "Feb 2025 - Nov 2025",
+    points: [
+      "Tutoring students in Applied Mathematics and Computer Science.",
+      "Invigilating exams and ensuring academic integrity.",
+      "Marking tests and assignments.",
+      
+    ],
+  },
+  {
+    
     title: "Data Analyst",
     company_name: "Medical Consortium of Africa",
     icon: Data,
@@ -196,6 +210,7 @@ const experiences = [
       "Utilizing tools such as SQL, Python, and Tableau to analyze and visualize data effectively.",
     ],
   }
+  
 ];
 
 const testimonials = [
@@ -217,7 +232,7 @@ const testimonials = [
   },
   {
     testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+      "I have had the opportunity to work with Sima in many projects in university, his desire to constantly learn even under pressure is something I admire about him, he has great communication skills and knows when to ask for help. Overall he’s a fantastic team player and a great friend too",
     name: "Tshepo Phaswane",
     designation: "student",
     company: "Wits Alumni",
@@ -245,12 +260,12 @@ const projects = [
       },
     ],
     image: carrent,
-    source_code_link: "https://github.com/SimcitaP/Learnledger",
+    source_code_link: "https://learnledger-seven.vercel.app/",
   },
   {
     name: "subscription tracker",
     description:
-      "This is a fully backend-end only project that focuses on managing subscriptions for any software that may need it. It inlcudes authentication, authorization ands subscription management. ",
+      "This is a fully backend-end only project that focuses on managing subscriptions for any software that may need it. It inlcudes authentication, authorization ands subscription management. This uses ExpressJS for the backend server and mongoDB for the database management.",
     tags: [
       {
         name: "ExpressJS",
@@ -268,6 +283,71 @@ const projects = [
     image: jobit,
     source_code_link: "https://github.com/SimcitaP/subscription-tracker",
   },
+  {
+  name: "University Research Hub",
+  description:
+    "A collaborative platform designed for students, researchers, and institutions to connect, share ideas, and work together on research projects. It supports project creation, team collaboration, document sharing, version control, and role-based access. Built to streamline academic collaboration and foster innovation across universities.",
+  tags: [
+    {
+      name: "NextJS",
+      color: "blue-text-gradient",
+    },
+    {
+      name: "NodeJS",
+      color: "green-text-gradient",
+    },
+    {
+      name: "PostgreSQL",
+      color: "pink-text-gradient",
+    },
+  ],
+  image: tripguide,
+  source_code_link: "hhttps://scholarsphere-site.netlify.app/",
+},
+{
+  name: "HoopMania",
+  description:
+    "A modern basketball statistics tracking platform that provides real-time and historical player and team performance analytics. It includes dashboards, advanced stat visualizations, player comparisons, and predictive analytics to help fans, coaches, and analysts gain deeper insights into the game.",
+  tags: [
+    {
+      name: "React",
+      color: "blue-text-gradient",
+    },
+    {
+      name: "API",
+      color: "green-text-gradient",
+    },
+    {
+      name: "ChartJS",
+      color: "pink-text-gradient",
+    },
+  ],
+  image: tripguide,
+  source_code_link: "https://hoopmania-eq4c.onrender.com/",
+},
+{
+  name: "Spendly",
+  description:
+    "An intelligent financial habits tracking application that goes beyond simple expense tracking. Spendly leverages AI to analyze spending patterns, predict future habits, recommend smarter financial decisions, and suggest stores that offer the best value for money. It helps users build better financial discipline and achieve long-term financial goals.",
+  tags: [
+    {
+      name: "AI",
+      color: "blue-text-gradient",
+    },
+    {
+      name: "FinTech",
+      color: "green-text-gradient",
+    },
+    {
+      name: "Python",
+      color: "pink-text-gradient",
+    },
+  ],
+  image: tripguide,
+  source_code_link: "https://github.com/AI-Aveng3rs/spendly",
+},
+
+  
   {
     name: "Seider theatre",
     description:

@@ -260,7 +260,7 @@ const projects = [
       },
     ],
     image: carrent,
-    source_code_link: "https://learnledger-seven.vercel.app/",
+    source_code_link: "https://github.com/SimcitaP/learnledger",
   },
   {
     name: "subscription tracker",
@@ -302,7 +302,7 @@ const projects = [
     },
   ],
   image: tripguide,
-  source_code_link: "https://scholarsphere-site.netlify.app/",
+  source_code_link: "https://github.com/Scholarsphere100/ScholarSphere",
 },
 {
   name: "HoopMania",
@@ -323,7 +323,7 @@ const projects = [
     },
   ],
   image: tripguide,
-  source_code_link: "https://hoopmania-eq4c.onrender.com/",
+  source_code_link: "https://github.com/Cipher-Pol-Aigis-Zero/sport-stat-tracker",
 },
 {
   name: "Spendly",

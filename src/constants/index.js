@@ -302,7 +302,7 @@ const projects = [
     },
   ],
   image: tripguide,
-  source_code_link: "hhttps://scholarsphere-site.netlify.app/",
+  source_code_link: "https://scholarsphere-site.netlify.app/",
 },
 {
   name: "HoopMania",

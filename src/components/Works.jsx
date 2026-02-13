@@ -1,7 +1,7 @@
 import { Tilt } from "react-tilt";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-
+import { useState } from "react";
 import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
@@ -16,6 +16,7 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  onViewDetails,
 }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
@@ -65,6 +66,13 @@ const ProjectCard = ({
             </p>
           ))}
         </div>
+        {/* New Button for Details */}
+        <button 
+          onClick={onViewDetails}
+          className="mt-5 w-full py-2 px-4 bg-primary text-white rounded-xl text-[14px] font-bold border border-secondary hover:bg-secondary transition-all"
+        >
+          View Case Study
+        </button>
       </Tilt>
     </motion.div>
   );
@@ -73,6 +81,9 @@ const ProjectCard = ({
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Works = () => {
+
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <>
     <motion.div variants={textVariant()}>
@@ -104,10 +115,50 @@ const Works = () => {
           key={`project-${index}`} 
           index={index} 
           {...project} 
+          onViewDetails={() => setSelectedProject(project)}
           />
         ))}
       </div>
 
+       {/* Project Detail Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
+          <div className="bg-primary p-8 rounded-3xl max-w-3xl w-full max-h-[85vh] overflow-y-auto border border-secondary relative">
+            <button 
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-5 right-5 text-secondary hover:text-white font-bold text-2xl"
+            >✕</button>
+            
+            <h2 className="text-white text-3xl font-bold">{selectedProject.name}</h2>
+            
+            <div className="mt-7 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="text-secondary font-bold uppercase tracking-wider text-xs">Tech Stack</h4>
+                  <ul className="list-disc ml-5 mt-2 text-white-100 text-sm">
+                    {/* Ensure these exist in your constants/index.js */}
+                    {selectedProject.techStack?.map(tech => <li key={tech}>{tech}</li>)}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-secondary font-bold uppercase tracking-wider text-xs">Methodology</h4>
+                  <p className="text-white-100 mt-2 text-sm">{selectedProject.methodology}</p>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-secondary font-bold uppercase tracking-wider text-xs">The Problem</h4>
+                <p className="text-white-100 mt-2 text-sm leading-relaxed">{selectedProject.problem}</p>
+              </div>
+
+              <div>
+                <h4 className="text-secondary font-bold uppercase tracking-wider text-xs">The Solution</h4>
+                <p className="text-white-100 mt-2 text-sm leading-relaxed">{selectedProject.solution}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }

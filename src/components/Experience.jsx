@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import React from "react";
+import React, {useState} from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -14,7 +14,7 @@ import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({ experience, onClick }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
@@ -54,11 +54,22 @@ const ExperienceCard = ({ experience }) => {
           </li>
         ))}
       </ul>
+
+        <button 
+        onClick={onClick}
+        className="mt-5 py-2 px-4 bg-tertiary text-white rounded-lg text-[12px] font-bold"
+      >
+        View Full Details
+      </button>
+
     </VerticalTimelineElement>
   );
 };
 
 const Experience = () => {
+
+  const [selectedExp, setSelectedExp] = useState(null);
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -80,6 +91,26 @@ const Experience = () => {
           ))}
         </VerticalTimeline>
       </div>
+
+      {/* Simple Modal Overlay */}
+      {selectedExp && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+          <div className="bg-primary p-8 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-secondary">
+            <h2 className="text-white text-3xl font-bold">{selectedExp.title}</h2>
+            <p className="text-secondary font-semibold">{selectedExp.company_name}</p>
+            <div className="mt-5 text-white-100 space-y-4">
+               {/* Add more detailed fields here from your constants */}
+               <p>{selectedExp.detailedDescription || "Add detailedDescription in constants/index.js"}</p>
+            </div>
+            <button 
+              className="mt-8 bg-white text-black py-2 px-6 rounded-xl font-bold"
+              onClick={() => setSelectedExp(null)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

@@ -39,6 +39,10 @@ export const navLinks = [
     title: "Work",
   },
   {
+    id: "certificates",
+    title: "Certificates",
+  },
+  {
     id: "contact",
     title: "Contact",
   },
@@ -213,6 +217,17 @@ const experiences = [
   
 ];
 
+const certificates = [
+  {
+    name: "GenAI Course for Software Engineers", // 
+    issuer: "WeThinkCode_", // 
+    date: "13 February 2026", // 
+    description: "Advanced course focusing on integrating Generative AI into the software development lifecycle.", // 
+    image: "./Simamnkele Mlisana", 
+    link: "../assets/Simamnkele Mlisana.pdf", 
+  },
+]
+
 const testimonials = [
   {
     testimonial:
@@ -245,7 +260,12 @@ const projects = [
     name: "Learnledger",
     description:
       "Web-based school management system that allows uploading of lessons, assignments and exams that both students and parents can see at any time allowing parent to stay up tp date with their children's learning material and progress.",
-    tags: [
+    
+    techStack: ["NextJS", "Supabase", "Tailwind CSS", "PostgreSQL"],
+    methodology: "Agile/Scrum with bi-weekly sprints and continuous integration.",
+    problem: "Parents often feel disconnected from their child's daily classroom progress and resource accessibility.",
+    solution: "Created a centralized hub where lessons and assignments are updated in real-time, providing a transparent window for parents into the curriculum.",
+      tags: [
       {
         name: "NextJS",
         color: "blue-text-gradient",
@@ -371,4 +391,4 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, experiences, testimonials, projects, certificates };

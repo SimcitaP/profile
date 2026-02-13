@@ -61,6 +61,14 @@ const Navbar = () => {
               <a href={`#${Link.id}`}>{Link.title}</a>
             </li>
           ))}
+
+          {/* Add this CV Button */}
+  <li className="bg-tertiary py-2 px-5 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl">
+    <a href="/MyCV.pdf" download="Simamnkele-Mlisana-Resume.pdf">
+      Download CV
+    </a>
+  </li>
+
         </ul>
 
         <div className='sm:hidden flex flex-1 justify-end items-center'>

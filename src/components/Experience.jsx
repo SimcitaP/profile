@@ -87,6 +87,7 @@ const Experience = () => {
             <ExperienceCard
               key={`experience-${index}`}
               experience={experience}
+              onClick={() => setSelectedExp(experience)}
             />
           ))}
         </VerticalTimeline>
@@ -94,8 +95,14 @@ const Experience = () => {
 
       {/* Simple Modal Overlay */}
       {selectedExp && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
-          <div className="bg-primary p-8 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-secondary">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setSelectedExp(null)}
+        >
+          <div 
+            className="bg-primary p-8 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-secondary"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h2 className="text-white text-3xl font-bold">{selectedExp.title}</h2>
             <p className="text-secondary font-semibold">{selectedExp.company_name}</p>
             <div className="mt-5 text-white-100 space-y-4">
@@ -103,8 +110,12 @@ const Experience = () => {
                <p>{selectedExp.detailedDescription || "Add detailedDescription in constants/index.js"}</p>
             </div>
             <button 
-              className="mt-8 bg-white text-black py-2 px-6 rounded-xl font-bold"
-              onClick={() => setSelectedExp(null)}
+              type="button"
+              className="mt-8 bg-white text-black py-2 px-6 rounded-xl font-bold cursor-pointer hover:bg-gray-200 transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedExp(null);
+              }}
             >
               Close
             </button>

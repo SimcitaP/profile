@@ -199,6 +199,7 @@ const experiences = [
       "Marking tests and assignments.",
       
     ],
+    detailedDescription: "As a Wits Tutor, my responsibilities included providing one-on-one and group support to students tackling difficult concepts in Applied Mathematics and Computer Science. I facilitated an engaging continuous learning structure while executing administrative tasks such as marking tests and invigilating exams to uphold academic standards.",
   },
   {
     
@@ -213,6 +214,7 @@ const experiences = [
       "Collaborating with cross-functional teams to understand business requirements and provide data-driven insights.",
       "Utilizing tools such as SQL, Python, and Tableau to analyze and visualize data effectively.",
     ],
+    detailedDescription: "As a Data Analyst at the Medical Consortium of Africa, I am responsible for the end-to-end data lifecycle from collection to visual reporting. Utilizing SQL, Python, and Tableau, I conduct extensive statistical analyses to uncover trends in large datasets. I collaborate directly with stakeholders to align data insights with business goals, ensuring well-informed decision-making processes.",
   }
   
 ];

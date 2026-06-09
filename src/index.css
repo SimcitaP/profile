@@ -4,13 +4,41 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #f5f4ff;
+  --color-secondary: #4a4570;
+  --color-tertiary: #ede9ff;
+  --color-black-100: #e8e3ff;
+  --color-black-200: #ddd8ff;
+  --color-white-100: #1a1735;
+  /* VerticalTimeline card tokens */
+  --tl-card-bg: #ede9ff;
+  --tl-card-text: #1a1735;
+  --tl-card-arrow: #d5cfff;
+  --tl-line: #c4beff;
+}
+
+.dark {
+  --color-primary: #050816;
+  --color-secondary: #aaa6c3;
+  --color-tertiary: #151030;
+  --color-black-100: #100d25;
+  --color-black-200: #090325;
+  --color-white-100: #f3f3f3;
+  /* VerticalTimeline card tokens */
+  --tl-card-bg: #1d1836;
+  --tl-card-text: #ffffff;
+  --tl-card-arrow: #232631;
+  --tl-line: #232631;
+  color-scheme: dark;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-  color-scheme: dark;
 }
 
 .hash-span {
@@ -112,6 +140,11 @@
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* VerticalTimeline overrides — makes the centre line theme-aware */
+.vertical-timeline::before {
+  background: var(--tl-line) !important;
 }
 
 /* canvas- styles */

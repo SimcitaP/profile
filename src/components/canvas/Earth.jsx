@@ -34,11 +34,12 @@ const EarthCanvas = () => {
           minPolarAngle={Math.PI / 2}
         />
         <Earth />
-
         <Preload all />
       </Suspense>
     </Canvas>
   );
 };
+
+useGLTF.preload("./planet/scene.gltf");
 
 export default EarthCanvas;

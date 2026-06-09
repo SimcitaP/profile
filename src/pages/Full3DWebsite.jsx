@@ -3,6 +3,7 @@ import {
   About, Contact, Experience, Feedbacks,
   Hero, Navbar, Tech, Works, StarsCanvas
 } from "../components";
+import Certificates from "../components/Certificates";
 
 const Full3DWebsite = () => {
   return (
@@ -16,6 +17,7 @@ const Full3DWebsite = () => {
       <Experience />
       <Tech />
       <Works />
+      <Certificates />
       <Feedbacks />
 
       <div className="relative z-0">

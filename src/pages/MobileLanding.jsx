@@ -5,18 +5,20 @@ import About from "../components/About";
 import Experience from "../components/Experience";
 import Tech from "../components/Tech";
 import Works from "../components/Works";
+import Certificates from "../components/Certificates";
 import Feedbacks from "../components/Feedbacks";
 import Contact from "../components/Contact";
 
 const MobileLanding = () => {
   return (
-    <div className="bg-primary w-full overflow-x-hidden">
+    <div className="bg-primary w-full overflow-hidden">
       <Navbar />
-      <Hero />   
+      <Hero />
       <About />
       <Experience />
-      {/*<Tech />*/}
+      <Tech />
       <Works />
+      <Certificates />
       <Feedbacks />
       <Contact />
     </div>

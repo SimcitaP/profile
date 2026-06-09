@@ -1,4 +1,5 @@
 // eslint-disable-next-line no-unused-vars
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from '../styles';
@@ -14,35 +15,54 @@ const FeedbackCard = ({
   designation,
   company,
   image,
-}) => (
-  <motion.div
-    variants={fadeIn("", "spring", index * 0.5, 0.75)}
-    className='bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full'
-  >
-    <p className='text-white font-black text-[48px]'>"</p>
+}) => {
+  const [expanded, setExpanded] = useState(false);
 
-    <div className='mt-1'>
-      <p className='text-white tracking-wider text-[18px]'>{testimonial}</p>
+  const firstSentence = testimonial.match(/^.+?[.!?](?!\.)/)?.[0] ?? testimonial;
+  const hasMore = firstSentence.length < testimonial.length;
 
-      <div className='mt-7 flex justify-between items-center gap-1'>
-        <div className='flex-1 flex flex-col'>
-          <p className='text-white font-medium text-[16px]'>
-            <span className='blue-text-gradient'>@</span> {name}
-          </p>
-          <p className='mt-1 text-secondary text-[12px]'>
-            {designation} of {company}
-          </p>
+  return (
+    <motion.div
+      variants={fadeIn("", "spring", index * 0.5, 0.75)}
+      className='bg-black-200 sm:p-10 p-6 rounded-3xl xs:w-[320px] w-full'
+    >
+      <p className='dark:text-white text-gray-900 font-black sm:text-[48px] text-[36px]'>"</p>
+
+      <div className='mt-1'>
+        <p className='dark:text-white text-gray-800 tracking-wider text-[18px]'>
+          {expanded ? testimonial : firstSentence}
+          {!expanded && hasMore && "..."}
+        </p>
+
+        {hasMore && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className='mt-3 text-[14px] text-secondary hover:text-white transition-colors underline underline-offset-2'
+          >
+            {expanded ? "Read less" : "Read more"}
+          </button>
+        )}
+
+        <div className='mt-7 flex justify-between items-center gap-1'>
+          <div className='flex-1 flex flex-col'>
+            <p className='dark:text-white text-gray-900 font-medium text-[16px]'>
+              <span className='blue-text-gradient'>@</span> {name}
+            </p>
+            <p className='mt-1 text-secondary text-[12px]'>
+              {designation} of {company}
+            </p>
+          </div>
+
+          <img
+            src={image}
+            alt={`feedback_by-${name}`}
+            className='w-10 h-10 rounded-full object-cover'
+          />
         </div>
-
-        <img
-          src={image}
-          alt={`feedback_by-${name}`}
-          className='w-10 h-10 rounded-full object-cover'
-        />
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Feedbacks = () => {

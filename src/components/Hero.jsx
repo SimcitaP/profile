@@ -4,6 +4,7 @@ import useIsMobile from "../hooks/useIsMobile";
 
 import { styles } from '../styles';
 import { ComputersCanvas } from './canvas';
+import { technologies } from '../constants';
 
 const Hero = () => {
 
@@ -25,8 +26,35 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      {/* disables 3D laptop if on mobile */}
-      {isMobile ? <h1></h1> :<ComputersCanvas />}
+      {/* disables 3D laptop if on mobile — shows tech mosaic instead */}
+      {isMobile ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="absolute bottom-20 xs:bottom-24 left-0 right-0 px-6"
+        >
+          <div className="grid grid-cols-4 gap-3">
+            {technologies.map((tech) => (
+              <div
+                key={tech.name}
+                className="flex flex-col items-center gap-1 bg-tertiary/70 backdrop-blur-sm rounded-xl p-2"
+              >
+                <img
+                  src={tech.icon}
+                  alt={tech.name}
+                  className="w-8 h-8 object-contain"
+                />
+                <span className="text-secondary text-[9px] text-center leading-tight w-full truncate">
+                  {tech.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      ) : (
+        <ComputersCanvas />
+      )}
 
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
         <a href='#about'>

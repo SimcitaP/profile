@@ -1,11 +1,12 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, {useState} from "react";
+import React from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 import "react-vertical-timeline-component/style.min.css";
 
@@ -13,15 +14,11 @@ import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
-
 const ExperienceCard = ({ experience, onClick }) => {
   return (
     <VerticalTimelineElement
-      contentStyle={{
-        background: "#1d1836",
-        color: "#fff",
-      }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      contentStyle={{ background: "var(--tl-card-bg)", color: "var(--tl-card-text)" }}
+      contentArrowStyle={{ borderRight: "7px solid var(--tl-card-arrow)" }}
       date={experience.date}
       iconStyle={{ background: experience.iconBg }}
       icon={
@@ -35,7 +32,7 @@ const ExperienceCard = ({ experience, onClick }) => {
       }
     >
       <div>
-        <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+        <h3 className='dark:text-white text-gray-900 text-[24px] font-bold'>{experience.title}</h3>
         <p
           className='text-secondary text-[16px] font-semibold'
           style={{ margin: 0 }}
@@ -55,9 +52,9 @@ const ExperienceCard = ({ experience, onClick }) => {
         ))}
       </ul>
 
-        <button 
+      <button
         onClick={onClick}
-        className="mt-5 py-2 px-4 bg-tertiary text-white rounded-lg text-[12px] font-bold"
+        className="mt-5 py-3 px-4 bg-tertiary dark:text-white text-gray-900 rounded-lg text-[14px] font-bold cursor-pointer dark:hover:bg-[#151030] hover:bg-[#d5cfff] transition-colors w-full sm:w-auto"
       >
         View Full Details
       </button>
@@ -67,8 +64,7 @@ const ExperienceCard = ({ experience, onClick }) => {
 };
 
 const Experience = () => {
-
-  const [selectedExp, setSelectedExp] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -83,45 +79,15 @@ const Experience = () => {
 
       <div className='mt-20 flex flex-col'>
         <VerticalTimeline>
-          {experiences.map((experience, index) => (
+          {[...experiences].reverse().map((experience) => (
             <ExperienceCard
-              key={`experience-${index}`}
+              key={experience.id}
               experience={experience}
-              onClick={() => setSelectedExp(experience)}
+              onClick={() => navigate(`/experience/${experience.id}`)}
             />
           ))}
         </VerticalTimeline>
       </div>
-
-      {/* Simple Modal Overlay */}
-      {selectedExp && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setSelectedExp(null)}
-        >
-          <div 
-            className="bg-primary p-8 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-secondary"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="text-white text-3xl font-bold">{selectedExp.title}</h2>
-            <p className="text-secondary font-semibold">{selectedExp.company_name}</p>
-            <div className="mt-5 text-white-100 space-y-4">
-               {/* Add more detailed fields here from your constants */}
-               <p>{selectedExp.detailedDescription || "Add detailedDescription in constants/index.js"}</p>
-            </div>
-            <button 
-              type="button"
-              className="mt-8 bg-white text-black py-2 px-6 rounded-xl font-bold cursor-pointer hover:bg-gray-200 transition-colors"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedExp(null);
-              }}
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </>
   );
 };

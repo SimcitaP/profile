@@ -75,4 +75,7 @@ const ComputersCanvas = () => {
   );
 };
 
+useGLTF.preload("./desktop_pc/scene.gltf");
+
 export default ComputersCanvas;
+

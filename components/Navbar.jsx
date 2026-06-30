@@ -50,9 +50,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
-      }`}
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 ${scrolled ? "bg-primary" : "bg-transparent"
+        }`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
@@ -71,9 +70,8 @@ const Navbar = () => {
           {navLinks.map((nav) => (
             <li
               key={nav.id}
-              className={`${
-                active === nav.title ? "dark:text-white text-gray-900" : "text-secondary"
-              } dark:hover:text-white hover:text-gray-900 text-[18px] font-medium cursor-pointer`}
+              className={`${active === nav.title ? "dark:text-white text-gray-900" : "text-secondary"
+                } dark:hover:text-white hover:text-gray-900 text-[18px] font-medium cursor-pointer`}
               onClick={() => handleNavLinkClick(nav.id, nav.title)}
             >
               <span>{nav.title}</span>
@@ -102,17 +100,15 @@ const Navbar = () => {
             onClick={() => setToggle(!toggle)}
           />
           <div
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 bg-black-100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            className={`${!toggle ? "hidden" : "flex"
+              } p-6 bg-black-100 absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
           >
             <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "dark:text-white text-gray-900" : "text-secondary"
-                  }`}
+                  className={`font-poppins font-medium cursor-pointer text-[16px] ${active === nav.title ? "dark:text-white text-gray-900" : "text-secondary"
+                    }`}
                   onClick={() => { setToggle(false); handleNavLinkClick(nav.id, nav.title); }}
                 >
                   <span>{nav.title}</span>
@@ -155,14 +151,14 @@ const Navbar = () => {
             </div>
             <div className="w-full" style={{ height: "75vh" }}>
               <iframe
-                src="/assets/Simamnkele Mlisana.pdf"
+                src="Simamnkele-Mlisana-Resume.pdf"
                 title="CV Preview"
                 className="w-full h-full rounded-none"
               />
             </div>
             <div className="flex justify-end px-6 py-4 border-t dark:border-white/10 border-gray-200">
               <a
-                href="/assets/Simamnkele Mlisana.pdf"
+                href="Simamnkele-Mlisana-Resume.pdf"
                 download="Simamnkele-Mlisana-Resume.pdf"
                 className="bg-[#915eff] py-2 px-6 text-white font-bold rounded-xl hover:bg-[#804dee] transition-colors"
               >
